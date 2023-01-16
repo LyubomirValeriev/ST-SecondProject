@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe-backend",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./src/app.js",
+  "scripts": {
+    "db-init": "node  db-init.js",
+    "start": "node src/app.js",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.216.0",
+    "@aws-sdk/util-dynamodb": "^3.216.0",
+    "express": "^4.18.1",
+    "socket.io": "^4.5.4"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}
