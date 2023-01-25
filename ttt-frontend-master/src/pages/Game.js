@@ -6,6 +6,8 @@ import Info from '../components/Info'
 import { getLocalUser } from '../localStore'
 import ReactConfetti from 'react-confetti'
 import { Alert, Button } from '@mui/material'
+import {Window, MessageList, MessageInput} from 'stream-chat-react'
+
 
 export const Game = () => {
   const [board, setBoard] = useState([9, 9, 9, 9, 9, 9, 9, 9, 9])
@@ -72,6 +74,16 @@ export const Game = () => {
         )}
       </div>
       <div className='infoDisplay'>{info && <Info data={info} />}</div>
+      <div className="gameContainer">
+        <Window>
+          <MessageList
+              disableDateSeparator
+              closeReactionSelectorOnClick
+              hideDeletedMessages
+              messageActions = {["react"]}/>
+          <MessageInput noFiles/>
+        </Window>
+      </div>
     </div>
   )
 }
