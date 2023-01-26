@@ -49,6 +49,12 @@ io.of('/game').on('connection', (socket) => {
     await dynamo.updateGame(game)
     io.of('/game').to(gameId).emit('GAME_STATE', game)
   })
+
+  socket.on('SENT_MESSAGE', async (msgObj) => {
+      console.log("Attempting to broadcast message...")
+      console.log(msgObj)
+      io.of('/game').to(msgObj.gameId).emit('CHAT_UPDATE', msgObj)
+  })
 })
 
 app.post('/heartbeat', async (req, res) => {

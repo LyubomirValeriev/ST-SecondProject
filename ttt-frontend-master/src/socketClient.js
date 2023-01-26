@@ -17,3 +17,15 @@ export const offGameState = (listener) => {
 export const playMove = (mockMovePlayedEventArgs) => {
   socket.emit('MOVE_PLAYED', mockMovePlayedEventArgs)
 }
+
+export const sendMessage = (msgObj) => {
+  socket.emit('SENT_MESSAGE', msgObj)
+}
+
+export const onMessageReceived = (listener) => {
+  socket.on('CHAT_UPDATE', listener)
+}
+
+export const offMessageReceived = (listener) => {
+  socket.off('CHAT_UPDATE', listener)
+}
